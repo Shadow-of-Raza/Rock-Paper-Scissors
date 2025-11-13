@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors - Ultimate Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Player Name Modal -->
+    <div id="name-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to Rock Paper Scissors!</h2>
+            <p>Enter your name to begin the adventure:</p>
+            <input type="text" id="player-name-input" placeholder="Your Name" maxlength="15">
+            <button id="start-game">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Round Indicator -->
+    <div id="round-indicator" class="round-indicator hidden">
+        <span id="round-title">Round 1</span>
+    </div>
+
+    <!-- Game Container -->
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="title-section">
+                    <h1>Rock Paper Scissors</h1>
+                    <p class="subtitle">The Ultimate Battle of Wits</p>
+                </div>
+                <div class="header-controls">
+                    <button id="sound-toggle" class="control-btn">
+                        <span class="sound-icon">🔊</span>
+                    </button>
+                    <button id="reset-btn" class="control-btn">🔄</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="game-board">
+                <div class="score-board">
+                    <div class="score">
+                        <div class="player-score">
+                            <h2 id="player-name">Player</h2>
+                            <p id="player-score">0</p>
+                        </div>
+                        <div class="vs-badge">
+                            <span>VS</span>
+                        </div>
+                        <div class="bot-score">
+                            <h2>Bot</h2>
+                            <p id="bot-score">0</p>
+                        </div>
+                    </div>
+                    <div class="rounds">
+                        <p>Round: <span id="round">1</span>/5</p>
+                    </div>
+                </div>
+
+                <div class="choices-container">
+                    <div class="choices">
+                        <div class="player-choice">
+                            <h3>Your Choice</h3>
+                            <div id="player-choice" class="choice-display">❓</div>
+                        </div>
+                        <div class="bot-choice">
+                            <h3>Bot's Choice</h3>
+                            <div id="bot-choice" class="choice-display">❓</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result" id="result">
+                    <p>Make your move to start the game!</p>
+                </div>
+
+                <div class="controls">
+                    <button class="choice-btn" id="rock" data-choice="rock">
+                        <span class="emoji">✊</span>
+                        <span class="text">Rock</span>
+                    </button>
+                    <button class="choice-btn" id="paper" data-choice="paper">
+                        <span class="emoji">✋</span>
+                        <span class="text">Paper</span>
+                    </button>
+                    <button class="choice-btn" id="scissors" data-choice="scissors">
+                        <span class="emoji">✌️</span>
+                        <span class="text">Scissors</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats-rules">
+                <div class="stats">
+                    <h3>Game Stats</h3>
+                    <div class="stat-item">
+                        <span>Games Played:</span>
+                        <span id="games-played">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Win Rate:</span>
+                        <span id="win-rate">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Current Streak:</span>
+                        <span id="current-streak">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Best Streak:</span>
+                        <span id="best-streak">0</span>
+                    </div>
+                </div>
+
+                <div class="rules">
+                    <h3>How to Play</h3>
+                    <ul>
+                        <li>Choose Rock, Paper, or Scissors</li>
+                        <li>The Bot will randomly select its choice</li>
+                        <li>Rock crushes Scissors</li>
+                        <li>Scissors cuts Paper</li>
+                        <li>Paper covers Rock</li>
+                        <li>First to win 3 out of 5 rounds wins!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Popup -->
+    <div id="result-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2 id="result-title">Game Over!</h2>
+            <p id="result-details"></p>
+            <div class="popup-buttons">
+                <button id="play-again-btn">Play Again</button>
+                <button id="close-popup">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="win-sound" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3" preload="auto"></audio>
+    <audio id="lose-sound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3" preload="auto"></audio>
+    <audio id="tie-sound" src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3" preload="auto"></audio>
+    <audio id="select-sound" src="https://assets.mixkit.co/active_storage/sfx/247/247-preview.mp3" preload="auto"></audio>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
